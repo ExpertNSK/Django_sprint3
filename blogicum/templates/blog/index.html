@@ -1,13 +1,12 @@
 {% extends "base.html" %}
-{% load static %}
+{% block title %}
+  Лента записей
+{% endblock %}
 {% block content %}
-  {% with request.resolver_match.view_name as view_name %}
-    <h1>Лента записей</h1>                        
-    {% for post in posts %}
-      {% if not foorloop.last %}
-        <hr>
-      {% endif %}
-      {% include 'blog/includes/post-card.html' %}
-    {% endfor %}
-  {% endwith %}
-{% endblock content %}
+  <h1 class="mb-5">Лента записей</h1>
+  {% for post in post_list %}
+    <article class="mb-5">  
+      {% include "includes/post_card.html" %}
+    </article>   
+  {% endfor %}
+{% endblock %}
